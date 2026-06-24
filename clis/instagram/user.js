@@ -37,7 +37,7 @@ cli({
   const d2 = await r2.json();
   return (d2?.items || []).slice(0, limit).map((p, i) => ({
     index: i + 1,
-    caption: (p.caption?.text || '').replace(/\\n/g, ' ').substring(0, 100),
+    caption: (p.caption?.text || '').replace(/\\n/g, ' '),
     likes: p.like_count ?? 0,
     comments: p.comment_count ?? 0,
     type: p.media_type === 1 ? 'photo' : p.media_type === 2 ? 'video' : 'carousel',
